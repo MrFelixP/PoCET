@@ -1,0 +1,9 @@
+--------------------------------------------------------------------------------
+INSTALLATION INFORMATION
+--------------------------------------------------------------------------------
+
+Installation of PoCET:
+--------------------------
+* Simply unpack this file into an appropriate toolbox folder
+* In MatLab change to the toolbox main folder and run "installPoCET". 
+  This will take care of all necessary steps.

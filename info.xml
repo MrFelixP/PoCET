@@ -1,0 +1,34 @@
+<productinfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:noNamespaceSchemaLocation="optional">
+    <?xml-stylesheet type="text/xsl"href="optional"?>
+    <!-- info.xml file for the PoCET toolbox -->
+    <!-- Author and copyright owner: Stefan Streif -->
+    
+    <matlabrelease>2010a</matlabrelease>
+    <name>PoCET</name>
+    <type>toolbox</type>
+    <icon>sampleicon.gif</icon>
+    <help_location>documentation/help</help_location>
+    <list>
+         <listitem>
+            <!-- Include call to open your documentation, if any -->
+            <label>PoCET Toolbox Documentation</label>
+            <callback>web(fullfile(fileparts(which('PoCETbasis')),'/documentation/help/','PoCET_product_page.html'),'-helpbrowser')</callback>
+            <icon>$toolbox/matlab/icons/bookicon.gif</icon>
+        </listitem>
+
+        <listitem>
+            <!-- Include call to show release note, if any -->
+            <label>PoCET Toolbox Release Notes</label>
+            <callback>web(fullfile(fileparts(which('PoCETbasis')),'/documentation/help/','PoCET_release_notes.html'),'-helpbrowser')</callback>
+            <icon>HelpIcon.RELEASE_NOTES</icon>
+        </listitem>
+        
+        <listitem>
+           <!-- Include call to open your Web site, if any -->
+           <label>PoCET Toolbox Web Site</label>
+            <callback>web http://.../index.shtml;</callback>
+            <icon>$docroot/techdoc/matlab_env/examples/webicon.gif</icon>
+        </listitem>
+    </list>
+</productinfo>
