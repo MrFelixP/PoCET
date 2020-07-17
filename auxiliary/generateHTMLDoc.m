@@ -1,8 +1,6 @@
 function generateHTMLDoc(filename, output_directory, title)
 % generateHTMLDoc(filename, [output_directory, [file_extension, title]])
 %
-% THIS FUNCTION IS USED FOR INTERNAL PURPOSES ONLY. DO NOT CALL DIRECTLY.
-%
 % generateHTMLDOC Generates a HTML documentation out of the help text
 % of an m-File.
 %
@@ -94,9 +92,7 @@ if nargin < 2
     output_directory = '.';
 end
 
-
 file_extension = '.html';
-
 
 filecontent = regexprep(fileread(filename), '\r\n', '\n');
 % get function name or class name via regular expression
@@ -131,7 +127,6 @@ end
 
 % remove leading percent signs and whitespace from docstring
 docstring = regexprep(docstring{1}{1}, '(\n% ?)|(^% ?)', '\n');
-
 if ~strcmp(name, 'PoCEToptions')
     html_doc = create_html(docstring, title);
     html_file = fopen(fullfile(output_directory, [name file_extension]), 'w');
@@ -324,7 +319,6 @@ end
 %%% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function createOptionsDocumentation(docstring, output_directory, file_extension)
-
 % create the documentation for PoCEToptions
 PoCEToptions_doctext = regexp(docstring, '(.*?)\n==+', 'tokens');
 html_doc = create_html(PoCEToptions_doctext{1}{1}, 'PoCEToptions');

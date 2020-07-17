@@ -90,8 +90,7 @@ if fullInstall || pathInstall,
     removePathDefs();    
     % add new paths
     disp('Adding search paths for PoCET functions...');
-    neededPaths = {'auxiliary'};
-%             neededPaths = {'auxiliary','documentation'};    
+    neededPaths = {'auxiliary'};    
     if checkIsPoCETRootFolder(neededPaths),
         % Apply path settings and save path
         PATH_TOOLBOX = pwd;
@@ -226,19 +225,40 @@ if fullInstall || docuInstall || webDocuInstall,
     if fullInstall || docuInstall,
         disp('+--------------------------------------------------------------------------------+');
         disp('Creating documentation...')
+        if ispc
+            if ~exist('documentation', 'dir')
+                mkdir('documentation')
+            end
+            addpath([PATH_TOOLBOX,'\documentation']);
+            if ~exist('documentation\help', 'dir')
+                mkdir('documentation\help')
+            end
+            addpath([PATH_TOOLBOX,'\documentation\help']);
+        else
+            if ~exist('documentation', 'dir')
+                mkdir('documentation')
+            end
+            addpath([PATH_TOOLBOX,'/documentation']);
+            if ~exist('documentation/help', 'dir')
+                mkdir('documentation/help')
+            end
+            addpath([PATH_TOOLBOX,'/documentation/help']);
+        end
+         
         warning('off','MATLAB:dispatcher:nameConflict');
         try
             createDocumentation(0);
         catch ME
-            rethrow(ME)
-%             fprintf(2,'Problems during creation of documentation and help texts. PoCET should work nevertheless.\n');
+%             rethrow(ME)
+            fprintf(2,'Problems during creation of documentation and help texts. PoCET should work nevertheless.\n');
         end
         warning('on','MATLAB:dispatcher:nameConflict');
-        if ispc,
-            builddocsearchdb([pwd,'\documentation\help']);
-        else %ISUNIX,
-            builddocsearchdb([pwd,'/documentation/help']);
-        end
+
+%         if ispc
+%             builddocsearchdb([PATH_TOOLBOX,'\documentation\help']);
+%         else %ISUNIX,
+%             builddocsearchdb([PATH_TOOLBOX,'/documentation/help']);
+%         end
         fprintf('\nNote: You might have to restart Matlab once in order to \nrefresh help paths and to use the PoCET documentation.\n')
     end
 %     if webDocuInstall,
@@ -291,7 +311,7 @@ end
 function createDocumentation(forWebsite)
 
 % directories where we look for m-files
-directories = {'.', 'auxiliary/','auxiliary/estimation/','auxiliary/outlieranalysis/','auxiliary/symb/','classes/','classes/@PoCETconstraint/','classes/@PoCETproject/','classes/@PoCETtime/','classes/@PoCETvariable/'};
+directories = {'.', 'auxiliary/'};
 
 % the html-files go here
 help_dir = 'documentation/help';
