@@ -1,6 +1,7 @@
 function CheckMsg = checkInput(PoCETsys)
 % PoCET internal function. Do not call directly!
 
+vv = {'states','parameters','outputs','inputs'};
 CheckMsg = '';
 nvars1 = numel(PoCETsys.states) + numel(PoCETsys.parameters) + numel(PoCETsys.outputs) + numel(PoCETsys.inputs);
 nvars2 = numel(unique({PoCETsys.states.name PoCETsys.parameters.name PoCETsys.outputs.name PoCETsys.inputs.name}));
