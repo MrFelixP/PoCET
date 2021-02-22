@@ -1,0 +1,17 @@
+<html><head>	<style type="text/css">		h1 {color: #900; font-size: 24px; padding: 2px 0px 2px 0px; margin: 10px 0px 0px 5px; vertical-align: middle;}		h2 {color: #900; font-weight: bolder}		.doctext  {display: block; font-family: monospace; white-space: pre; margin: 1em 0px;}		.keyword  {color: #900; font-weight: bold;}		.header {background-color: #900; color: white; font-weight: bold}	</style></head><title>PoCETcompose</title><body><div class="header">PoCET documentation: PoCETcompose</div><h1>PoCETcompose</h1><pre class="doctext">
+<a href="PoCETsys.html">PoCETsys</a> = PoCETcompose(states, parameters, inputs, outputs) 
+returns a struct containing the Polynomial Chaos Expansion of order 2 of 
+the system defined by the states-, parameters-, and inputs-structs used 
+as input arguments. See 'help PoCET' for more information on how to define
+a system.
+
+PoCETcompose(states, parameters, inputs, outputs, order) additionally sets 
+the order of the Polynomial Chaos Expansion.
+
+NOTE: PoCETcompose(s)      does the same as  PoCETcompose(s,[],[],[],2)
+      PoCETcompose(s,p)    does the same as  PoCETcompose(s,p,[],[],2)
+      PoCETcompose(s,p,i)  does the same as  PoCETcompose(s,p,i,[],2)
+
+In order to simulate the composed system, first create its expanded
+right-hand-sides using <a href="PoCETwriteFiles.html">PoCETwriteFiles</a>(<a href="PoCETsys.html">PoCETsys</a>).
+</pre></body></html>

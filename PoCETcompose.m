@@ -242,7 +242,7 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function eq_dec = eq_decompose(eq_string,varflag)
  % prepare ode decomposition
-
+ 
  eq_dec.terms = struct('monomial',[],'coefficient',[],...
                        'xi_index',[],'xi_degrees',[],...
                        'state_index',[],'state_degrees',[],...
@@ -288,12 +288,12 @@ function eq_dec = eq_decompose(eq_string,varflag)
  end
  
  if eq_dec.ispoly
-%   keyboard
+  
   dum_var = sym(all_names); % create symbolic dummy variables
-  dum_str = [eq_string ' ']; % create dummy equation string with extra blankspace
- 
+  dum_str = [' ' eq_string ' ']; % create dummy equation string with extra blankspace
+  
   for i_var = 1:numel(all_names)
-   dum_str = regexprep(dum_str,[all_names{i_var} '(\W)'],['dum_var(' num2str(i_var) ')$1']);
+   dum_str = regexprep(dum_str,['(\W)' all_names{i_var} '(\W)'],['$1dum_var(' num2str(i_var) ')$2']);
   end
   
   eq_dec.equation = str2syms(dum_str); % convert to symbolic
@@ -332,16 +332,17 @@ end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function [is_poly,sym_var] = ispolynomial(eq_str,all_names,varflag)
+ 
  is_poly = false;
  sym_var = [];
-%  keyboard
+
  dum_var = sym(all_names); % create symbolic dummy variables
- dum_str = [eq_str ' ']; % create dummy equation string with extra blankspace
+ dum_str = [' ' eq_str ' ']; % create dummy equation string with extra blankspaces
  
  for i_var = 1:numel(all_names)
-  dum_str = regexprep(dum_str,[all_names{i_var} '(\W)'],['dum_var(' num2str(i_var) ')$1']);
+  dum_str = regexprep(dum_str,['(\W)' all_names{i_var} '(\W)'],['$1dum_var(' num2str(i_var) ')$2']);
  end
-%  keyboard
+ 
  try 
   sym_eq = str2syms(dum_str); % convert equation to symbolic expression
   sym_eq = expand(sym_eq); % get rid of brackets

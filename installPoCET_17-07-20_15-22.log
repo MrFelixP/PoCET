@@ -1,0 +1,187 @@
++--------------------------------------------------------------------------------+
+| INSTALLATION                                                                   |
++--------------------------------------------------------------------------------+
+| PoCET (Polynomial Chaos Expansion Toolbox) for MATLAB                          |
+|   by [Petzke et al., 2020]                                                     |
++--------------------------------------------------------------------------------+
+| Copyright (c) 2020 Stefan Streif, stefan.streif@etit.tu-chemnitz.de            |
+| Licensed under the EUPL-1.2-or-later                                           |
++--------------------------------------------------------------------------------+
+Do you accept the licensing conditions? (y/n [n]): y
++--------------------------------------------------------------------------------+
+Searching for previous installation of PoCET...
+Adding search paths for PoCET functions...
+ 
+Press any key to continue.
++--------------------------------------------------------------------------------+
+Determining versions of installed toolboxes (this might take few seconds) ...
+
+Checking "MATLAB" installation ...  OK! Installed version: 9.8
+Checking "Symbolic Math Toolbox" installation ...  OK! Installed version: 8.5
+Checking "Optimization Toolbox" installation ...  OK! Installed version: 8.5
+ 
+Press any key to continue.
++--------------------------------------------------------------------------------+
+Creating documentation...
+builddocsearchdb([PATH_TOOLBOX,'\documentation\help']);
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('builddocsearchdb', 'C:\Program Files\MATLAB\R2020a\toolbox\matlab\helptools\builddocsearchdb.m', 38)" style="font-weight:bold">builddocsearchdb</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020a\toolbox\matlab\helptools\builddocsearchdb.m',38,0)">line 38</a>)
+Could not write search database.
+} 
+if system_dependent('IsDebugMode')==1, dbquit; end
+builddocsearchdb('./documentation/help')
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('builddocsearchdb', 'C:\Program Files\MATLAB\R2020a\toolbox\matlab\helptools\builddocsearchdb.m', 32)" style="font-weight:bold">builddocsearchdb</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020a\toolbox\matlab\helptools\builddocsearchdb.m',32,0)">line 32</a>)
+There is no installed product with this help location.
+Documentation that is not associated with a product will not be displayed in the help browser.
+} 
+help addpath
+ <strong>addpath</strong> Add folder to search path.
+    <strong>addpath</strong> FOLDERNAME prepends the specified folder to the current
+    matlabpath.  Surround FOLDERNAME in quotes if the name contains a
+    space.  If FOLDERNAME is a set of multiple folders separated by path
+    separators, then each of the specified folders will be added.
+ 
+    <strong>addpath</strong> FOLDERNAME1 FOLDERNAME2 FOLDERNAME3 ...  prepends all the 
+    specified folders to the path.
+ 
+    <strong>addpath</strong> ... -END    appends the specified folders.
+    <strong>addpath</strong> ... -BEGIN  prepends the specified folders.
+    <strong>addpath</strong> ... -FROZEN disables folder change detection for folders
+                        being added.
+ 
+    Use the functional form of <strong>addpath</strong>, such as 
+    <strong>addpath</strong>('folder1','folder2',...), when the folder specification is 
+    a variable or string.
+ 
+    P = <strong>addpath</strong>(...) returns the path prior to adding the specified paths.
+ 
+    Examples
+        addpath c:\matlab\work
+        addpath /home/user/matlab
+        addpath /home/user/matlab:/home/user/matlab/test:
+        addpath /home/user/matlab /home/user/matlab/test
+ 
+    See also <a href="matlab:help rmpath">rmpath</a>, <a href="matlab:help pathtool">pathtool</a>, <a href="matlab:help path">path</a>, <a href="matlab:help savepath">savepath</a>, <a href="matlab:help userpath">userpath</a>, <a href="matlab:help genpath">genpath</a>, <a href="matlab:help rehash">rehash</a>.
+
+    <a href="matlab:doc addpath">Documentation for addpath</a>
+
+help rmpath
+ <strong>rmpath</strong> Remove folder from search path.
+    <strong>rmpath</strong> FOLDERNAME removes the specified folder from the current
+    matlab path.  Surround the FOLDERNAME in quotes if the name contains a
+    space.  If FOLDERNAME is a set of multiple folders separated by path
+    separators, then each of the specified folders will be removed.
+ 
+    <strong>rmpath</strong> FOLDER1 FOLDER2 FOLDER3 removes all the specified folders from
+    the path.
+ 
+    Use the functional form of <strong>rmpath</strong>, such as 
+    <strong>rmpath</strong>('folder1','folder2',...), when the folder specification is stored 
+    in a variable or string.
+ 
+    P = <strong>rmpath</strong>(...) returns the path prior to removing the specified paths.
+ 
+    Examples
+        rmpath c:\matlab\work
+        rmpath /home/user/matlab
+        rmpath /home/user/matlab:/home/user/matlab/test:
+        rmpath /home/user/matlab /home/user/matlab/test
+ 
+    See also <a href="matlab:help addpath">addpath</a>, <a href="matlab:help pathtool">pathtool</a>, <a href="matlab:help path">path</a>, <a href="matlab:help savepath">savepath</a>, <a href="matlab:help userpath">userpath</a>, <a href="matlab:help genpath">genpath</a>, <a href="matlab:help rehash">rehash</a>.
+
+    <a href="matlab:doc rmpath">Documentation for rmpath</a>
+
+help rehash
+ <strong>rehash</strong>  Refresh function and file system caches.
+    <strong>rehash</strong> with no inputs performs the same refresh operations that are done
+    each time the MATLAB prompt is displayed. In other words, for any folder 
+    on the search path that is not in matlabroot, MATLAB updates the list 
+    of known files, revises the list of known classes, and checks the 
+    timestamps of loaded functions against the timestamps of the files on disk.
+    The only time one should need to use this form is when writing out files 
+    programmatically and expecting MATLAB to find them before reaching the 
+    next MATLAB prompt.
+  
+    <strong>rehash</strong> PATH is the same as <strong>rehash</strong> except that it unconditionally updates
+    the list of known files and classes for all folders on the search path 
+    that are not in matlabroot. Use this form only if you receive a warning 
+    during MATLAB startup notifying you that MATLAB could not tell if a folder 
+    has changed, and you encounter problems with MATLAB not using the most
+    current versions of your program files. 
+ 
+    <strong>rehash</strong> TOOLBOX is the same as <strong>rehash</strong> PATH except it updates the list of 
+    known files and classes for all folders on the search path, including 
+    those in matlabroot. Use this form when you change, add, or remove files
+    in matlabroot during a session. Typically, you should not make changes
+    to files and folders in matlabroot.
+ 
+    <strong>rehash</strong> TOOLBOXCACHE is the same as <strong>rehash</strong> TOOLBOX, and also updates the
+    cache file on disk.
+ 
+    See also <a href="matlab:help path">path</a>, <a href="matlab:help addpath">addpath</a>, <a href="matlab:help rmpath">rmpath</a>, <a href="matlab:help savepath">savepath</a>, <a href="matlab:help matlabroot">matlabroot</a>.
+
+    <a href="matlab:doc rehash">Documentation for rehash</a>
+    <a href="matlab:matlab.internal.language.introspective.overloads.displayOverloads('rehash')">Other functions named rehash</a>
+
+rehash('documentation')
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('rehash')" style="font-weight:bold">rehash</a>
+No such rehash option.
+} 
+doc rehash
+rehash documentation
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('rehash')" style="font-weight:bold">rehash</a>
+No such rehash option.
+} 
+rehash ./documentation
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('rehash')" style="font-weight:bold">rehash</a>
+No such rehash option.
+} 
+help path
+ <strong>path</strong> Get/set search path.
+    <strong>path</strong>, by itself, prettyprints MATLAB's current search path. The initial
+    search path list is set by PATHDEF, and is perhaps individualized by
+    STARTUP.
+ 
+    P = <strong>path</strong> returns a character vector containing the path in P. <strong>path</strong>(P)
+    changes the path to P.
+ 
+    <strong>path</strong>(P1,P2) changes the path to the concatenation of the two search 
+    paths P1 and P2.  Thus <strong>path</strong>(<strong>path</strong>,P) appends the folder P to the
+    current path and <strong>path</strong>(P,<strong>path</strong>) prepends the folder P.  If P is already
+    on the path, then <strong>path</strong>(<strong>path</strong>,P) moves P to the end of the path,
+    and similarly, <strong>path</strong>(P,<strong>path</strong>) moves P to the beginning of the path.
+ 
+    For example, the following statements add another folder to MATLAB's
+    search path on various operating systems:
+ 
+      Unix:     path(path,'/home/myfriend/goodstuff')
+      Windows:  path(path,'c:\tools\goodstuff')
+ 
+    See also <a href="matlab:help what">what</a>, <a href="matlab:help cd">cd</a>, <a href="matlab:help dir">dir</a>, <a href="matlab:help addpath">addpath</a>, <a href="matlab:help rmpath">rmpath</a>, <a href="matlab:help genpath">genpath</a>, <a href="matlab:help pathtool">pathtool</a>, <a href="matlab:help savepath">savepath</a>, <a href="matlab:help rehash">rehash</a>.
+
+    <a href="matlab:doc path">Documentation for path</a>
+    <a href="matlab:matlab.internal.language.introspective.overloads.displayOverloads('path')">Other functions named path</a>
+
+builddocsearchdb('c:/Users/Felix/Documents/GitHub/PoCET/documentation/help')
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('builddocsearchdb', 'C:\Program Files\MATLAB\R2020a\toolbox\matlab\helptools\builddocsearchdb.m', 38)" style="font-weight:bold">builddocsearchdb</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020a\toolbox\matlab\helptools\builddocsearchdb.m',38,0)">line 38</a>)
+Could not write search database.
+} 
+builddocsearchdb('C:\Users\Felix\Documents\GitHub\PoCET\documentation\help')
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('builddocsearchdb', 'C:\Program Files\MATLAB\R2020a\toolbox\matlab\helptools\builddocsearchdb.m', 38)" style="font-weight:bold">builddocsearchdb</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020a\toolbox\matlab\helptools\builddocsearchdb.m',38,0)">line 38</a>)
+Could not write search database.
+} 
+opentoline('C:\Program Files\MATLAB\R2020a\toolbox\matlab\helptools\builddocsearchdb.m',38,0)
+com.mathworks.mlwidgets.help.HelpPrefs.isShow3pDocInHelpBrowser
+
+ans =
+
+  <a href="matlab:helpPopup logical" style="font-weight:bold">logical</a>
+
+   1
+
+com.mathworks.mlwidgets.help.customdoc.CustomToolboxIndexer.index(helploc)
+{Unrecognized function or variable 'helploc'.
+} 
+PATH_TOOLBOX,'\documentation\help'
+{Unrecognized function or variable 'PATH_TOOLBOX'.
+} 
+installPoCET

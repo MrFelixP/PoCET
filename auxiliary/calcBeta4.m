@@ -9,7 +9,7 @@ function ablu = calcBeta4(mu_xi)
 %
 % The input mu is an array containing the first four central moments mu 
 % of a random variable x i, i. e. its mean, variance, skewness, and excess 
-% curtosis
+% curtosis.
 
  ablu = [1 1 0 1];    % preallocate output
  

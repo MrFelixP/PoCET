@@ -27,6 +27,10 @@ elseif nargin == 3
  M = size(MomMats,1);
 elseif nargin == 4
  M = size(MomMats,1);
+elseif nargin == 5
+ if isempty(type)
+  type = 'central';
+ end
 elseif nargin > 5
  error('Too many input arguments.');
 end
@@ -65,7 +69,6 @@ raw(1,:) = xi(1,:).*MomMats(1).val;
 if M >= 2
  raw(2,:) = sum(xi.^2.*(MomMats(2).val*ones(1,steps)),1);
 end
-
 if M >= 3
  for iM = 3:M
   val = MomMats(iM).val;

@@ -1,0 +1,17 @@
+<html><head>	<style type="text/css">		h1 {color: #900; font-size: 24px; padding: 2px 0px 2px 0px; margin: 10px 0px 0px 5px; vertical-align: middle;}		h2 {color: #900; font-weight: bolder}		.doctext  {display: block; font-family: monospace; white-space: pre; margin: 1em 0px;}		.keyword  {color: #900; font-weight: bold;}		.header {background-color: #900; color: white; font-weight: bold}	</style></head><title>generateHTMLDoc</title><body><div class="header">PoCET documentation: generateHTMLDoc</div><h1>generateHTMLDoc</h1><pre class="doctext">
+generateHTMLDoc(filename, [output_directory, [file_extension, title]])
+
+generateHTMLDOC Generates a HTML documentation out of the help text
+of an m-File.
+
+filename: Name of the m-File
+output_directory (optional, default: '.'): Output directory of the html-file
+title (optional): Title of the HTML-File. If not given, then the title is
+determined by the name of the m-file. The title can also be set in the
+documentation comment using a double percent sign.
+Example:
+%% This is the title
+% This is the other text.
+
+See the comments in the source code for details.
+</pre></body></html>

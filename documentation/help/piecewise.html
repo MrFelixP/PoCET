@@ -1,0 +1,19 @@
+<html><head>	<style type="text/css">		h1 {color: #900; font-size: 24px; padding: 2px 0px 2px 0px; margin: 10px 0px 0px 5px; vertical-align: middle;}		h2 {color: #900; font-weight: bolder}		.doctext  {display: block; font-family: monospace; white-space: pre; margin: 1em 0px;}		.keyword  {color: #900; font-weight: bold;}		.header {background-color: #900; color: white; font-weight: bold}	</style></head><title>piecewise</title><body><div class="header">PoCET documentation: piecewise</div><h1>piecewise</h1><pre class="doctext">
+out = piecewise(tvec,vvec,t) 
+returns 
+ 0          for             t &lt;  tvec(1)
+ vvec(i)    for  tvec(i) &gt;= t &gt;  tvec(i+1)
+ vvec(end)  for             t &gt;= tvec(end)
+
+ 'tvec' is a vector containing the time-points, at which the 
+ input value changes.
+
+ 'vvec' is a vector containing the values, the function takes 
+ at the specified timepoints.
+
+ 't' is the timepoint, at which the function is evaluated.
+
+In simulations, specify tvec and vvec as input parameters and
+piecewise(tvec,vvec,t) as the input function, where t will be 
+interpreted as the simulation time.
+</pre></body></html>

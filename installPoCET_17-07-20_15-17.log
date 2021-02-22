@@ -1,0 +1,72 @@
++--------------------------------------------------------------------------------+
+| INSTALLATION                                                                   |
++--------------------------------------------------------------------------------+
+| PoCET (Polynomial Chaos Expansion Toolbox) for MATLAB                          |
+|   by [Petzke et al., 2020]                                                     |
++--------------------------------------------------------------------------------+
+| Copyright (c) 2020 Stefan Streif, stefan.streif@etit.tu-chemnitz.de            |
+| Licensed under the EUPL-1.2-or-later                                           |
++--------------------------------------------------------------------------------+
+Do you accept the licensing conditions? (y/n [n]): y
++--------------------------------------------------------------------------------+
+Searching for previous installation of PoCET...
+Found existing installation of PoCET. Removing paths to existing installation ...
+Adding search paths for PoCET functions...
+ 
+Press any key to continue.
++--------------------------------------------------------------------------------+
+Determining versions of installed toolboxes (this might take few seconds) ...
+
+Checking "MATLAB" installation ...  OK! Installed version: 9.8
+Checking "Symbolic Math Toolbox" installation ...  OK! Installed version: 8.5
+Checking "Optimization Toolbox" installation ...  OK! Installed version: 8.5
+ 
+Press any key to continue.
++--------------------------------------------------------------------------------+
+Creating documentation...
+builddocsearchdb([pwd,'\documentation\help']);
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('builddocsearchdb', 'C:\Program Files\MATLAB\R2020a\toolbox\matlab\helptools\builddocsearchdb.m', 38)" style="font-weight:bold">builddocsearchdb</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020a\toolbox\matlab\helptools\builddocsearchdb.m',38,0)">line 38</a>)
+Could not write search database.
+} 
+builddocsearchdb([pwd,'\documentation\help']);
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('builddocsearchdb', 'C:\Program Files\MATLAB\R2020a\toolbox\matlab\helptools\builddocsearchdb.m', 28)" style="font-weight:bold">builddocsearchdb</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020a\toolbox\matlab\helptools\builddocsearchdb.m',28,0)">line 28</a>)
+The specified directory does not exist.
+} 
+pwd
+
+ans =
+
+    'C:\Users\Felix\Documents\GitHub\PoCET\documentation'
+
+pwd
+
+ans =
+
+    'C:\Users\Felix\Documents\GitHub\PoCET'
+
+help pwd
+ <strong>pwd</strong> Show (print) current working directory.
+    <strong>pwd</strong>  displays the current working directory.
+ 
+    S = <strong>pwd</strong> returns the current directory in the string S.
+ 
+    See also <a href="matlab:help cd">cd</a>.
+
+    <a href="matlab:doc pwd">Documentation for pwd</a>
+
+builddocsearchdb([PATH_TOOLBOX,'\documentation\help']);
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('builddocsearchdb', 'C:\Program Files\MATLAB\R2020a\toolbox\matlab\helptools\builddocsearchdb.m', 38)" style="font-weight:bold">builddocsearchdb</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020a\toolbox\matlab\helptools\builddocsearchdb.m',38,0)">line 38</a>)
+Could not write search database.
+} 
+if system_dependent('IsDebugMode')==1, dbquit; end
+builddocsearchdb([pwd,'\documentation\help']);
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('builddocsearchdb', 'C:\Program Files\MATLAB\R2020a\toolbox\matlab\helptools\builddocsearchdb.m', 38)" style="font-weight:bold">builddocsearchdb</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020a\toolbox\matlab\helptools\builddocsearchdb.m',38,0)">line 38</a>)
+Could not write search database.
+} 
+builddocsearchdb(fullfile([pwd,'\documentation\help']));
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('builddocsearchdb', 'C:\Program Files\MATLAB\R2020a\toolbox\matlab\helptools\builddocsearchdb.m', 38)" style="font-weight:bold">builddocsearchdb</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2020a\toolbox\matlab\helptools\builddocsearchdb.m',38,0)">line 38</a>)
+Could not write search database.
+} 
+Unable to delete directory C:\Users\Felix\Documents\GitHub\PoCET\documentation.
+File does not exist: C:\Users\Felix\Documents\GitHub\PoCET\documentation\help
+Unable to delete file: C:\Users\Felix\Documents\GitHub\PoCET\installPoCET_17-07-20_15-17.log

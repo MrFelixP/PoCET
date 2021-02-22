@@ -1,0 +1,33 @@
++--------------------------------------------------------------------------------+
+| INSTALLATION                                                                   |
++--------------------------------------------------------------------------------+
+| PoCET (Polynomial Chaos Expansion Toolbox) for MATLAB                          |
+|   by [Petzke et al., 2020]                                                     |
++--------------------------------------------------------------------------------+
+| Copyright (c) 2020 Stefan Streif, stefan.streif@etit.tu-chemnitz.de            |
+| Licensed under the EUPL-1.2-or-later                                           |
++--------------------------------------------------------------------------------+
+Do you accept the licensing conditions? (y/n [n]): y
++--------------------------------------------------------------------------------+
+Searching for previous installation of PoCET...
+Found existing installation of PoCET. Removing paths to existing installation ...
+Changing current directory to the toolbox root:
+C:\Users\Felix\Documents\GitHub\PoCET
+Adding search paths for PoCET functions...
+ 
+Press any key to continue.
++--------------------------------------------------------------------------------+
+Determining versions of installed toolboxes (this might take few seconds) ...
+
+Checking "MATLAB" installation ...  OK! Installed version: 9.8
+Checking "Symbolic Math Toolbox" installation ...  OK! Installed version: 8.5
+Checking "Optimization Toolbox" installation ...  OK! Installed version: 8.5
+ 
+Press any key to continue.
++--------------------------------------------------------------------------------+
+Creating documentation...
+
+Note: You might have to restart Matlab once in order to 
+refresh help paths and to use the PoCET documentation.
+ 
+Press any key to continue.

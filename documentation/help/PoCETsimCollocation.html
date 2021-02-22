@@ -1,0 +1,31 @@
+<html><head>	<style type="text/css">		h1 {color: #900; font-size: 24px; padding: 2px 0px 2px 0px; margin: 10px 0px 0px 5px; vertical-align: middle;}		h2 {color: #900; font-weight: bolder}		.doctext  {display: block; font-family: monospace; white-space: pre; margin: 1em 0px;}		.keyword  {color: #900; font-weight: bold;}		.header {background-color: #900; color: white; font-weight: bold}	</style></head><title>PoCETsimCollocation</title><body><div class="header">PoCET documentation: PoCETsimCollocation</div><h1>PoCETsimCollocation</h1><pre class="doctext">
+<a href="PoCETsim.html">PoCETsim</a> = PoCETsimCollocation(<a href="PoCETsys.html">PoCETsys</a>, 'MCRHSfile', 'MCOUTfile', BasisSamples, simoptions) 
+simulates the system <a href="PoCETsys.html">PoCETsys</a> and returns a struct containing the PCE
+coefficients for all states and outputs specified in <a href="PoCETsys.html">PoCETsys</a> 
+The coefficients are calculated via the stochastic collocation method. 
+
+- <a href="PoCETsys.html">PoCETsys</a> is the system struct returned by <a href="PoCETcompose.html">PoCETcompose</a>
+- MCRHSfile is a string containing the filename of the states'
+  right-hand-sides, which can be created using <a href="PoCETwriteFiles.html">PoCETwriteFiles</a>
+- MCOUTfile is a string containing the filename of the system's output,
+  which can be created using <a href="PoCETwriteFiles.html">PoCETwriteFiles</a>
+- samples is either an integer defining the number of collocation-points
+  or a matrix containig basis samples, which can be created using
+  <a href="PoCETsample.html">PoCETsample</a>(<a href="PoCETsys.html">PoCETsys</a>, 'basis', N)
+- simoptions is a struct with fields 
+  .setup   -  odeset-struct
+  .solver 	-  string containing the solver's name; default is 'ode15s'
+  .tspan   -  vector [t_0, t_end] or [t_0, t_1, ..., t_end]
+  .dt      -  double defining the stepwidth of the solver's output;
+              if tspan is a vector of more than two timepoints, setting
+              dt will overwrite these values
+
+<a href="PoCETsim.html">PoCETsim</a> = PoCETsimCollocation(..., 'method', 'final')
+returns a struct only containing the PCE coefficient values of all states
+and outputs at time simoptions.tspan(end)
+
+<a href="PoCETsim.html">PoCETsim</a> = PoCETsimCollocation(..., 'in1', data1, ..., 'inN', dataN) 
+simulates the system with inputs. The inputs' names and data have to
+match those specified in <a href="PoCETsys.html">PoCETsys</a>.inputs (see examples for more details on
+working with inputs).
+</pre></body></html>

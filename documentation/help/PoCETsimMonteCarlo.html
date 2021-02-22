@@ -1,0 +1,35 @@
+<html><head>	<style type="text/css">		h1 {color: #900; font-size: 24px; padding: 2px 0px 2px 0px; margin: 10px 0px 0px 5px; vertical-align: middle;}		h2 {color: #900; font-weight: bolder}		.doctext  {display: block; font-family: monospace; white-space: pre; margin: 1em 0px;}		.keyword  {color: #900; font-weight: bold;}		.header {background-color: #900; color: white; font-weight: bold}	</style></head><title>PoCETsimMonteCarlo</title><body><div class="header">PoCET documentation: PoCETsimMonteCarlo</div><h1>PoCETsimMonteCarlo</h1><pre class="doctext">
+MCsim = PoCETsimMonteCarlo(<a href="PoCETsys.html">PoCETsys</a>, 'MCRHSfile', 'MCOUTfile', samples, simoptions)
+simulates the system <a href="PoCETsys.html">PoCETsys</a> and returns a struct containing the
+Monte-Carlo trajectories for all states and outputs in <a href="PoCETsys.html">PoCETsys</a>.
+
+- <a href="PoCETsys.html">PoCETsys</a> is the system struct returned by <a href="PoCETcompose.html">PoCETcompose</a>
+- MCRHSfile is a string containing the filename of the states'
+  right-hand-sides, which can be created using <a href="PoCETwriteFiles.html">PoCETwriteFiles</a>
+- MCOUTfile is a string containing the filename of the output'
+  right-hand-side, which can be created using <a href="PoCETwriteFiles.html">PoCETwriteFiles</a>
+- samples is either an integer defining the number of Monte-Carlo-samples
+  or a struct containig samples for all variables, which can be created
+  using <a href="PoCETsample.html">PoCETsample</a>(<a href="PoCETsys.html">PoCETsys</a>, 'variables', N)
+- simoptions is a struct with fields 
+  .setup   -  odeset-struct
+  .solver 	-  string containing the solver's name; default is 'ode15s'
+  .tspan   -  vector [t_0, t_end] or [t_0, t_1, ..., t_end]
+  .dt      -  double defining the stepwidth of the solver's output;
+              if tspan is a vector of more than two timepoints, setting
+              dt will overwrite these values
+
+MCsim = PoCETsimMonteCarlo(..., 'method', 'final')
+returns a struct only containing the values of all states and outputs at 
+time simoptions.tspan(end)
+
+MCsim = PoCETsimMonteCarlo(..., 'method', 'moments')
+returns a struct containing the central moments of all states and outputs
+which are calculated recursively during the simulation in order to save
+memory
+
+MCsim = PoCETsimMonteCarlo(..., 'in1', data1, ..., 'inN', dataN)
+simulates the system with inputs 'in1' to 'inN'. The inputs' names and
+data have to match those specified in <a href="PoCETsys.html">PoCETsys</a>.inputs (see the examples
+for more details on working with inputs).
+</pre></body></html>

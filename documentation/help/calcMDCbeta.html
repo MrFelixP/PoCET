@@ -1,0 +1,10 @@
+<html><head>	<style type="text/css">		h1 {color: #900; font-size: 24px; padding: 2px 0px 2px 0px; margin: 10px 0px 0px 5px; vertical-align: middle;}		h2 {color: #900; font-weight: bolder}		.doctext  {display: block; font-family: monospace; white-space: pre; margin: 1em 0px;}		.keyword  {color: #900; font-weight: bold;}		.header {background-color: #900; color: white; font-weight: bold}	</style></head><title>calcMDCbeta</title><body><div class="header">PoCET documentation: calcMDCbeta</div><h1>calcMDCbeta</h1><pre class="doctext">
+dH = calcMDCbeta(ABLU1,ABLU2)
+returns the value of the integral over the product of two four-parameter 
+beta distributions defined by ABLU1 and ABLU2 with
+ABLU = [ALPHA, BETA, LOWER_BOUND, UPPER_BOUND].
+NOTE: Since    dH = 0  &lt;=>  the distributions don't overlap at all
+      and      dH = 1  &lt;=>  the distributions are identical
+      this value can be used as a measure of the overlap or similarity of
+      both distrubtions.
+</pre></body></html>

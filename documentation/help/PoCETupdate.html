@@ -1,0 +1,11 @@
+<html><head>	<style type="text/css">		h1 {color: #900; font-size: 24px; padding: 2px 0px 2px 0px; margin: 10px 0px 0px 5px; vertical-align: middle;}		h2 {color: #900; font-weight: bolder}		.doctext  {display: block; font-family: monospace; white-space: pre; margin: 1em 0px;}		.keyword  {color: #900; font-weight: bold;}		.header {background-color: #900; color: white; font-weight: bold}	</style></head><title>PoCETupdate</title><body><div class="header">PoCET documentation: PoCETupdate</div><h1>PoCETupdate</h1><pre class="doctext">
+<a href="PoCETsys.html">PoCETsys</a> = PoCETupdate(<a href="PoCETsys.html">PoCETsys</a>, 'var1', data1,..., 'varN', dataN)
+returns the system <a href="PoCETsys.html">PoCETsys</a> with updated/modified uncertainties of the 
+initial conditions or parameter values as specified by the input 
+arguments. The input values data1 to dataN have to match the distribution
+of the corresponding variable in <a href="PoCETsys.html">PoCETsys</a>.
+
+NOTE: PoCETupdate cannot change the system's dynamics, the order of the 
+      polynomial chaos expansion, or the disbribution of a variable.
+      Use <a href="PoCETcompose.html">PoCETcompose</a> instead!
+</pre></body></html>

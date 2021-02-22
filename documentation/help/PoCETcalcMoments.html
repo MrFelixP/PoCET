@@ -1,0 +1,22 @@
+<html><head>	<style type="text/css">		h1 {color: #900; font-size: 24px; padding: 2px 0px 2px 0px; margin: 10px 0px 0px 5px; vertical-align: middle;}		h2 {color: #900; font-weight: bolder}		.doctext  {display: block; font-family: monospace; white-space: pre; margin: 1em 0px;}		.keyword  {color: #900; font-weight: bold;}		.header {background-color: #900; color: white; font-weight: bold}	</style></head><title>PoCETcalcMoments</title><body><div class="header">PoCET documentation: PoCETcalcMoments</div><h1>PoCETcalcMoments</h1><pre class="doctext">
+moments = PoCETcalcMoments(<a href="PoCETsys.html">PoCETsys</a>, MomMats, pcvals) 
+calculates the central moments of a variable from its PCE
+coefficients pcvals which are returned by <a href="PoCETsimGalerkin.html">PoCETsimGalerkin</a> or
+<a href="PoCETsimCollocation.html">PoCETsimCollocation</a>, respectively. Only the first M=SIZE(MomMats,1)
+moments are calculated. 
+If pcvals is a matrix of PCE coefficients, PoCETcalcMoments will return a 
+M-by-size(pcvals,2) matrix containing where each row contains the 
+moment of corresponding order (1st row -> 1st central moment, ...).
+If pcvals is a struct, PoCETcalcMoments returns a struct containing the
+moments of all variables in pcvals.
+
+moments = PoCETcalcMoments(<a href="PoCETsys.html">PoCETsys</a>, MomMats, pcvals, 'raw')
+returnes the raw moments instead.
+
+moments = PoCETcalcMoments(<a href="PoCETsys.html">PoCETsys</a>, MomMats, pcvals, ..., M)
+returnes moments up to order M with M &lt;= SIZE(MomMats,1).
+
+Example: 
+ PoCETcalcMoments(<a href="PoCETsys.html">PoCETsys</a>, MomMats, results.x1.pcvals(:,end), 'raw', 2) 
+ returns the first two raw moments of x1 at the end of the simulation.
+</pre></body></html>

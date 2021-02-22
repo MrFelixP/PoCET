@@ -1,0 +1,20 @@
+<html><head>	<style type="text/css">		h1 {color: #900; font-size: 24px; padding: 2px 0px 2px 0px; margin: 10px 0px 0px 5px; vertical-align: middle;}		h2 {color: #900; font-weight: bolder}		.doctext  {display: block; font-family: monospace; white-space: pre; margin: 1em 0px;}		.keyword  {color: #900; font-weight: bold;}		.header {background-color: #900; color: white; font-weight: bold}	</style></head><title>PoCETsample</title><body><div class="header">PoCET documentation: PoCETsample</div><h1>PoCETsample</h1><pre class="doctext">
+samples = PoCETsample(<a href="PoCETsys.html">PoCETsys</a>, 'variables', N)
+returns a struct containing N samples of all initial conditions and 
+parameters in the system specified by <a href="PoCETsys.html">PoCETsys</a>, which is a struct created
+with <a href="PoCETcompose.html">PoCETcompose</a>.
+
+samples = PoCETsample(<a href="PoCETsys.html">PoCETsys</a>, 'basis', N)
+returns a N_PHI-by-N matrix containing the values of the polynomial chaos 
+basis functions evaluated at N samples of the random variables of the
+system <a href="PoCETsys.html">PoCETsys</a>. N_PHI is the number of terms used for the PCE.
+
+samples = PoCETsample(<a href="PoCETsys.html">PoCETsys</a>, 'PCE', N, pcvals)
+returns a N-by-SIZE(pcvals,2) matrix containing samples that are
+calculated from the polynomial chaos coefficients 'pcvals'.
+
+samples = PoCETsample(<a href="PoCETsys.html">PoCETsys</a>, 'PCE', [], pcvals, basis)
+returns a SIZE(basis,2)-by-SIZE(pcvals,2) matrix containing samples that
+are calculated from the polynomial chaos coefficients 'pcvals' and the
+evaluated basis functions 'basis'.
+</pre></body></html>

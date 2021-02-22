@@ -1,0 +1,18 @@
+<html><head>	<style type="text/css">		h1 {color: #900; font-size: 24px; padding: 2px 0px 2px 0px; margin: 10px 0px 0px 5px; vertical-align: middle;}		h2 {color: #900; font-weight: bolder}		.doctext  {display: block; font-family: monospace; white-space: pre; margin: 1em 0px;}		.keyword  {color: #900; font-weight: bold;}		.header {background-color: #900; color: white; font-weight: bold}	</style></head><title>PoCETwriteFiles</title><body><div class="header">PoCET documentation: PoCETwriteFiles</div><h1>PoCETwriteFiles</h1><pre class="doctext">
+PoCETwriteFiles(<a href="PoCETsys.html">PoCETsys</a>, RHSfile, OUTfile, MCRHSfile, MCOUTfile) 
+writes .m-files containing all dynamic- and output-equations of the 
+Polynomial Chaos Expansion of the system defined in <a href="PoCETsys.html">PoCETsys</a>. The files
+will be created in the current directory.
+
+PoCETwriteFiles(<a href="PoCETsys.html">PoCETsys</a>) creates all files using default filenames. 
+
+EXAMPLES:
+ PoCETwriteFiles(<a href="PoCETsys.html">PoCETsys</a>) 
+ creates files RHS.m, OUT.m, MCRHS.m, and MCOUT.m.
+
+ PoCETwriteFiles(<a href="PoCETsys.html">PoCETsys</a>,'myRHS.m',[],'','myMCOUT')
+ creates dynamics-file myRHS.m and output-file myMCOUT.m
+
+ PoCETwriteFiles(<a href="PoCETsys.html">PoCETsys</a>,[],'sysOUT')
+ creates output-file sysOUT.m
+</pre></body></html>

@@ -50,7 +50,7 @@ PoCETwriteFiles(sys,'ex1_ODE.m','ex1_OUT.m','ex1_MCODE.m','ex1_MCOUT.m')
 results = PoCETsimGalerkin(sys,'ex1_ODE','ex1_OUT',simoptions);
 
 % get moment matrices up to 4th moment
-MomMats = PoCETmomentMatrices(sys,2);
+MomMats = PoCETmomentMatrices(sys,4);
 
 % compute moments from simulation results
 results.x.moments = PoCETcalcMoments(sys,MomMats,results.x.pcvals);
