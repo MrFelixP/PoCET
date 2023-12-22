@@ -6,7 +6,7 @@
 
 clc, clear all, close all
 addpath(genpath('../../../PoCET'));
-parametersH = zeros(3,1);
+parametersH = []; % zeros(3,1);
 
 %% (1) define model candidates, input, and options
 % system 1
@@ -38,12 +38,12 @@ end
 statesM(1).name = 'x_1'; % name
 statesM(1).dist = 'beta4'; % initial distribution 
 statesM(1).data = [3 3 0.96 0.98]; % initial distribution parameters
-statesM(1).rhs = 'p_1*(x_2-1)*x_1+(p_2+u1)*x_2';
+statesM(1).rhs = 'p_1*(x_2-1)*x_1+(p_2+u)*x_2';
 
 statesM(2).name = 'x_2'; % name
 statesM(2).dist = 'beta4'; % initial distribution 
 statesM(2).data = [3 3 0.01 0.03]; % initial distribution parameters
-statesM(2).rhs = 'p_1*(1-x_2)*x_1-(p_3+p_2+u1)*x_2';
+statesM(2).rhs = 'p_1*(1-x_2)*x_1-(p_3+p_2+u)*x_2';
 
 parametersM(1).name = 'p_1'; % name
 parametersM(1).dist = 'uniform'; % distribution
@@ -59,7 +59,7 @@ parametersM(3).data = [0.9, 1.15]; % distribution parameters
 
 % define piecewise constant input
 inputs(1).name = 'u'; % name
-inputs(1).rhs  = 'piecewise(u_t,u_v,t)'; % right hand side (any MATLAB function possible)
+inputs(1).rhs  = 'piecewise(u1_t,u1_v,t)'; % right hand side (any MATLAB function possible)
 inputs(1).u1_t = [0 0.5 1 1.5 2 2.5 3 3.5]; % vector of step times
 inputs(1).u1_v = [0 0 0 0 0 0 0 0]; % initial vector of step sizes (preallocation)
 
@@ -201,4 +201,3 @@ plot(mcresultsM_d.time,mcresultsM_d.x_2.ub,'Color','r','Linewidth',1.5,'LineStyl
 ylabel('Concentration $x_2^*$','Interpreter','latex','FontSize',15)
 xlabel('time $t$','Interpreter','latex','FontSize',15)
 title('(b) Outer bounds after discrimination','Interpreter','latex','FontSize',15)
-
