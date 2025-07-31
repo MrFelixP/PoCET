@@ -6,7 +6,7 @@
 
 clc, clear all, close all
 addpath(genpath('../../../PoCET'));
-parametersH = zeros(3,1);
+parametersH = struct('name', cell(1, 3), 'dist', cell(1, 3), 'data', cell(1,3));
 
 %% (1) define model candidates, input, and options
 % system 1
