@@ -35,7 +35,7 @@ pce_order = 3;
 % mySystem = PoCETcompose(states, parameters, inputs, options);
 sys = PoCETcompose(states,parameters,[],[],pce_order);
 
-PoCETwriteFiles(sys,'ex6_ODE.m')
+PoCETwriteFiles(sys,'ex7_ODE.m')
 
 %% (2.) estimate lb and ub using moments of x
 % get moment matrices up to 2nd moment
@@ -56,13 +56,13 @@ hold on
 ndfcn = @(x,mu,sd) exp(-(x-mu).^2 ./ (2*sd)) /(sqrt(2*sd*pi));
 
 % simulate system with initial guesses for a
-results_init = PoCETsimGalerkin(sys,'ex1_ODE',simoptions);
+results_init = PoCETsimGalerkin(sys,'ex7_ODE',simoptions);
 moments_init = PoCETcalcMoments(sys,MomMats,results_init.x.pcvals);
 plot(30:0.5:50,ndfcn(30:0.5:50,moments_init(1,end),moments_init(2,end)),'LineWidth',2)
 
 % update PCE system with optimal values for a
 sys_opt = PoCETupdate(sys,'a',a_opt);
-results_opt = PoCETsimGalerkin(sys_opt,'ex1_ODE',simoptions);
+results_opt = PoCETsimGalerkin(sys_opt,'ex7_ODE',simoptions);
 moments_opt = PoCETcalcMoments(sys_opt,MomMats,results_opt.x.pcvals);
 plot(30:0.5:50,ndfcn(30:0.5:50,moments_opt(1,end),moments_opt(2,end)),'LineWidth',2)
 
@@ -79,7 +79,7 @@ function value = optfun(sys,data,param_a,MomMats,simoptions)
  sys = PoCETupdate(sys,'a',param_a);
 
  % simulate the updated system
- sim = PoCETsimGalerkin(sys,'ex1_ODE',simoptions);
+ sim = PoCETsimGalerkin(sys,'ex7_ODE',simoptions);
 
  % compute moments of x at the final time of the simulation 
  sim.x.moments = PoCETcalcMoments(sys,MomMats,sim.x.pcvals(:,end));
