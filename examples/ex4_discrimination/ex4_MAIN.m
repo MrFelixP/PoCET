@@ -6,7 +6,6 @@
 
 clc, clear all, close all
 addpath(genpath('../../../PoCET'));
-parametersH = struct('name', cell(1, 3), 'dist', cell(1, 3), 'data', cell(1,3));
 
 %% (1) define model candidates, input, and options
 % system 1
@@ -20,30 +19,28 @@ statesH(2).rhs = 'p_1*(1-x_2)*x_1-(p_2+u)*x_2'; % right hand side of ODE
 statesH(2).dist = 'beta4'; % initial distribution
 statesH(2).data = [3 3 0.01 0.03]; % initial distribution parameters
 
-for i = 1:3
- parametersH(i).name = ['p_' num2str(i)]; % name
- parametersH(i).dist = 'uniform'; % distribution
- parametersH(i).data = [0.9, 1.1]; % distribution parameters
-end
+parametersH(1).name = 'p_1'; % name
+parametersH(1).dist = 'uniform'; % distribution
+parametersH(1).data = [0.9, 1.1]; % distribution parameters
 
-% parametersH(2).name = 'p_2'; % name
-% parametersH(2).dist = 'uniform'; % distribution
-% parametersH(2).data = [0.9, 1.1]; % distribution parameters
-% 
-% parametersH(3).name = 'p_3'; % name
-% parametersH(3).dist = 'uniform'; % distribution
-% parametersH(3).data = [0.9, 1.1]; % distribution parameters
+parametersH(2).name = 'p_2'; % name
+parametersH(2).dist = 'uniform'; % distribution
+parametersH(2).data = [0.9, 1.1]; % distribution parameters
+ 
+parametersH(3).name = 'p_3'; % name
+parametersH(3).dist = 'uniform'; % distribution
+parametersH(3).data = [0.9, 1.1]; % distribution parameters
 
 % system 2
 statesM(1).name = 'x_1'; % name
 statesM(1).dist = 'beta4'; % initial distribution 
 statesM(1).data = [3 3 0.96 0.98]; % initial distribution parameters
-statesM(1).rhs = 'p_1*(x_2-1)*x_1+(p_2+u1)*x_2';
+statesM(1).rhs = 'p_1*(x_2-1)*x_1+(p_2+u)*x_2';
 
 statesM(2).name = 'x_2'; % name
 statesM(2).dist = 'beta4'; % initial distribution 
 statesM(2).data = [3 3 0.01 0.03]; % initial distribution parameters
-statesM(2).rhs = 'p_1*(1-x_2)*x_1-(p_3+p_2+u1)*x_2';
+statesM(2).rhs = 'p_1*(1-x_2)*x_1-(p_3+p_2+u)*x_2';
 
 parametersM(1).name = 'p_1'; % name
 parametersM(1).dist = 'uniform'; % distribution
@@ -60,12 +57,11 @@ parametersM(3).data = [0.9, 1.15]; % distribution parameters
 % define piecewise constant input
 inputs(1).name = 'u'; % name
 inputs(1).rhs  = 'piecewise(u_t,u_v,t)'; % right hand side (any MATLAB function possible)
-inputs(1).u1_t = [0 0.5 1 1.5 2 2.5 3 3.5]; % vector of step times
-inputs(1).u1_v = [0 0 0 0 0 0 0 0]; % initial vector of step sizes (preallocation)
+inputs(1).u_t = [0 0.5 1 1.5 2 2.5 3 3.5]; % vector of step times
+inputs(1).u_v = [0 0 0 0 0 0 0 0]; % initial vector of step sizes (preallocation)
 
 % define simulation options
 mc_samples = 1e3;
-
 
 simoptions.setup = odeset;
 simoptions.solver = 'ode15s';
@@ -74,11 +70,10 @@ simoptions.dt = 0.05;
 
 % compose the PCE systems and write files for PCE-ODE simulations
 pce_order = 2;
-tic
+
 sys_H = PoCETcompose(statesH,parametersH,inputs,[],pce_order); % calculate system expansion
 sys_H.MomMats = PoCETmomentMatrices(sys_H,4); % calculate matrices for moment calculation
-toc
-keyboard
+
 PoCETwriteFiles(sys_H,'ex4_ODE_H'); % write .m-function files for simulation
 
 sys_M = PoCETcompose(statesM,parametersM,inputs,[],pce_order); % calculate system expansion
